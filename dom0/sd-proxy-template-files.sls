@@ -13,14 +13,8 @@ install-securedrop-proxy-package:
     - require:
       - sls: fpf-apt-test-repo
 
-
-{% import_json "sd/config.json" as d %}
-
-install-securedrop-proxy-yaml-config:
-  file.managed:
-    - name: /etc/sd-proxy.yaml
-    - source: salt://sd/sd-proxy/sd-proxy.yaml
-    - template: jinja
-    - context:
-        hostname: {{ d.hidserv.hostname }}
-    - mode: 0644
+# Remove the legacy config file location
+remove-legacy-sd-proxy-config:
+  file.absent:
+    - names:
+      - /etc/sd-proxy.yaml
