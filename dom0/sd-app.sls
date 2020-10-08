@@ -11,7 +11,6 @@
 include:
   - sd-workstation-template
   - sd-upgrade-templates
-  - sd-templates
 
 sd-app:
   qvm.vm:

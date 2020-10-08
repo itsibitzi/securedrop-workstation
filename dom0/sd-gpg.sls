@@ -11,7 +11,6 @@
 
 include:
   - sd-workstation-template
-  - sd-templates
   - sd-upgrade-templates
 
 sd-gpg:
@@ -30,4 +29,3 @@ sd-gpg:
     - require:
       - sls: sd-workstation-template
       - sls: sd-upgrade-templates
-      - sls: sd-templates

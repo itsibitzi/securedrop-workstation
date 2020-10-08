@@ -9,7 +9,6 @@
 include:
   - sd-workstation-template
   - sd-upgrade-templates
-  - sd-templates
 
 sd-log:
   qvm.vm:
