@@ -12,6 +12,14 @@
 # respective AppVMs.
 ##
 
+sd-private-volume-mimeapps-config-dir:
+  file.directory:
+    - name: /home/user/.local/share/applications
+    - user: user
+    - group: user
+    - makedirs: True
+    - mode: "0755"
+
 {% if grains['id'] in ["sd-viewer", "sd-app", "sd-devices-dvm"] %}
 
 sd-private-volume-mimeapps-handling:
@@ -20,8 +28,8 @@ sd-private-volume-mimeapps-handling:
     - target: /opt/sdw/mimeapps.list.{{ grains['id'] }}
     - user: user
     - group: user
-    - mode: "644"
-    - makedirs: True
+    - require:
+      - file: sd-private-volume-mimeapps-config-dir
 
 {% else %}
 
@@ -31,7 +39,7 @@ sd-private-volume-mimeapps-handling:
     - target: /opt/sdw/mimeapps.list.default
     - user: user
     - group: user
-    - mode: "644"
-    - makedirs: True
+    - require:
+      - file: sd-private-volume-mimeapps-config-dir
 
 {% endif %}

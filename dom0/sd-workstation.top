@@ -53,6 +53,8 @@ base:
     - sd-logging-setup
   sd-viewer:
     - sd-mime-handling
+  sd-devices:
+    - sd-mime-handling
   sd-devices-dvm:
     - sd-mime-handling
   sd-proxy:
